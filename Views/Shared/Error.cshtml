@@ -1,0 +1,42 @@
+﻿@model ErrorViewModel  // Define que este archivo usa el modelo ErrorViewModel
+@{
+    ViewData["Title"] = "Error";  // Establece el título de la página en la vista
+}
+
+<h1 class="text-danger">Error.</h1>
+<h2 class="text-danger">An error occurred while processing your request.</h2>
+<!--
+    Mensaje de error en rojo indicando que ha ocurrido un problema
+    al procesar la solicitud. Se usan clases de Bootstrap para estilizar el texto.
+-->
+@if (Model.ShowRequestId) // Verifica si el RequestId no está vacío
+{
+    <p>
+        <strong>Request ID:</strong> <code>@Model.RequestId</code>
+    </p>
+    <!--
+        Muestra el identificador único de la solicitud si está disponible.
+        Esto es útil para depuración, ya que permite rastrear errores específicos.
+    -->
+}
+
+<h3>Development Mode</h3>
+<p>
+    Swapping to <strong>Development</strong> environment will display more detailed information about the error that occurred.
+</p>
+<!--
+    Explicación sobre el modo de desarrollo:
+    Si la aplicación está en modo "Development", se mostrarán más detalles sobre el error.
+-->
+
+<p>
+    <strong>The Development environment shouldn't be enabled for deployed applications.</strong>
+    It can result in displaying sensitive information from exceptions to end users.
+    For local debugging, enable the <strong>Development</strong> environment by setting the <strong>ASPNETCORE_ENVIRONMENT</strong> environment variable to <strong>Development</strong>
+    and restarting the app.
+</p>
+<!--
+    Advertencia sobre el uso del modo de desarrollo en entornos de producción.
+    Si se deja activado, los usuarios podrían ver información sensible sobre errores.
+    Se explica cómo habilitar el modo "Development" para depuración local.
+-->

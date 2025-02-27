@@ -1,0 +1,36 @@
+﻿@model IEnumerable<MiCrud.Models.Categoria>
+
+<!-- Título de la página -->
+<h2>Categorías</h2>
+
+<!-- Botón para agregar una nueva categoría -->
+<a asp-action="Create" class="btn btn-success">Agregar Categoría</a>
+
+<!-- Tabla que muestra la lista de categorías -->
+<table class="table">
+    <thead>
+        <tr>
+            <!-- Encabezado de la columna para el nombre de la categoría -->
+            <th>Nombre</th>
+            <!-- Encabezado de la columna para las acciones (editar/eliminar) -->
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        <!-- Bucle que recorre cada categoría en el modelo -->
+        @foreach (var item in Model)
+        {
+            <tr>
+                <!-- Muestra el nombre de la categoría -->
+                <td>@item.Nombre</td>
+                <td>
+                    <!-- Botón para editar la categoría, pasando su ID como parámetro -->
+                    <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-primary">Editar</a>
+
+                    <!-- Botón para eliminar la categoría, pasando su ID como parámetro -->
+                    <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-danger">Eliminar</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

@@ -1,0 +1,27 @@
+﻿@model MiCrud.Models.Categoria  // Define que la vista utiliza el modelo "Categoria"
+
+<h2>Agregar Categoría</h2> <!-- Título de la página -->
+<!-- Formulario para agregar una nueva categoría -->
+<form asp-action="Create">
+    <div class="form-group">
+        <!-- Contenedor del campo de entrada -->
+        <label>Nombre</label> <!-- Etiqueta para el campo de entrada -->
+        <input asp-for="Nombre" class="form-control" required /> <!-- Campo de texto vinculado con el modelo -->
+        <span asp-validation-for="Nombre" class="text-danger"></span> <!-- Muestra errores de validación -->
+    </div>
+
+    <!-- Botón para enviar el formulario y guardar la nueva categoría -->
+    <button type="submit" class="btn btn-success">Guardar</button>
+
+    <!-- Botón para cancelar y regresar al listado de categorías -->
+    <a asp-action="Index" class="btn btn-secondary">Cancelar</a>
+</form>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+        // Carga los scripts de validación en el lado del cliente para mejorar la experiencia del usuario
+    }
+}
+
+

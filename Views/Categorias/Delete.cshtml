@@ -1,0 +1,19 @@
+﻿@model MiCrud.Models.Categoria
+
+<!-- Título de la página -->
+<h2>Eliminar Categoría</h2>
+
+<!-- Mensaje de confirmación con el nombre de la categoría a eliminar -->
+<p>¿Estás seguro de que deseas eliminar la categoría <strong>@Model.Nombre</strong>?</p>
+
+<!-- Formulario para confirmar la eliminación -->
+<form asp-action="Delete">
+    <!-- Campo oculto para enviar el ID de la categoría a eliminar -->
+    <input type="hidden" asp-for="Id" />
+
+    <!-- Botón para confirmar la eliminación -->
+    <button type="submit" class="btn btn-danger">Eliminar</button>
+
+    <!-- Enlace para cancelar y regresar al índice de categorías -->
+    <a asp-action="Index" class="btn btn-secondary">Cancelar</a>
+</form>

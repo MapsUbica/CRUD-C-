@@ -1,0 +1,28 @@
+﻿@model MiCrud.Models.Categoria  // Define el modelo que se utilizará en la vista
+
+<h2>Editar Categoría</h2>  <!-- Título de la página -->
+<!-- Formulario para editar una categoría -->
+<form asp-action="Edit">
+    <!-- Campo oculto para enviar el ID de la categoría sin que el usuario lo edite -->
+    <input type="hidden" asp-for="Id" />
+
+    <div class="form-group">
+        <!-- Contenedor del campo de entrada -->
+        <label>Nombre</label>  <!-- Etiqueta para el campo de entrada -->
+        <input asp-for="Nombre" class="form-control" /> <!-- Campo de texto enlazado con el modelo -->
+        <span asp-validation-for="Nombre" class="text-danger"></span> <!-- Muestra errores de validación -->
+    </div>
+
+    <!-- Botón para enviar el formulario y guardar los cambios -->
+    <button type="submit" class="btn btn-primary">Guardar cambios</button>
+
+    <!-- Botón para cancelar y regresar al listado de categorías -->
+    <a asp-action="Index" class="btn btn-secondary">Cancelar</a>
+</form>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+        // Carga scripts de validación del lado del cliente (Requiere jQuery y Unobtrusive Validation)
+    }
+}
